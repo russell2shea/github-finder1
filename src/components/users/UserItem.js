@@ -1,8 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-const UserItem = props => {
-  // destructure so we dont have to use this.state
-  const { login, avatar_url, html_url } = props.user;
+// destructure so we dont have to use this.state. so instead of props have user: {login ect}
+const UserItem = ({ user: { login, avatar_url, html_url } }) => {
   return (
     <div className="card text-center">
       <img
@@ -20,5 +20,7 @@ const UserItem = props => {
     </div>
   );
 };
-
+UserItem.propTypes = {
+  user: PropTypes.object.isRequired
+};
 export default UserItem;
